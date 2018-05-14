@@ -76,7 +76,7 @@ ${offset 32}${font DejaVu Sans:normal:size=10}${color4}├───────�
 ${font DejaVu Sans:normal:size=10}  ┌──┴──┐
 ${font DejaVu Sans:normal:size=10}┌┤  ${font Monospace:normal:size=10}${color5}CPU${color4}${font DejaVu Sans:normal:size=10}  ├── ${font Ubuntu:normal:size=9}${color4} ${cpu}% ${cpubar}
 ${font DejaVu Sans:normal:size=10}│└─────┘
-${font DejaVu Sans:normal:size=10}├─ ${font Ubuntu:normal:size=9}${color4} ${hwmon 1 temp 1}°C
+${font DejaVu Sans:normal:size=10}├─ ${font Ubuntu:normal:size=9}${color4} ${hwmon 2 temp 1}${hwmon 1 temp 1}°C
 ${font DejaVu Sans:normal:size=10}${color4}├───────── ${font Monospace:normal:size=10}${color5}${top name 1}${alignr}${color2}${top cpu 1}%
 ${font DejaVu Sans:normal:size=10}${color4}│${offset 10}${font DejaVu Sans:normal:size=10}${color4}└──────── ${font Monospace:normal:size=10}${color5}${top name 2}${alignr}${color2}${top cpu 2}%
 ${font DejaVu Sans:normal:size=10}${color4}│${offset 20}${font DejaVu Sans:normal:size=10}${color4}└──────── ${font Monospace:normal:size=10}${color5}${top name 3}${alignr}${color2}${top cpu 3}%
