@@ -3,7 +3,7 @@
 # For Ubuntu *****
 
 sudo apt-get update && sudo apt-get upgrade
-sudo apt-get install build-essential conky git gnuplot peek tmux valgrind
+sudo apt-get install build-essential conky git gnuplot libncurses5-dev peek tmux valgrind
 
 # For Arch *****
 
