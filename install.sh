@@ -1,26 +1,64 @@
 #!/bin/bash
 
-# For Ubuntu *****
 
-sudo apt-get update && sudo apt-get upgrade
-sudo apt-get install build-essential conky git gnuplot libncurses5-dev peek tmux valgrind
+DF=dotfiles
+GH_DIR=Programming/github
 
-# For Arch *****
 
-# Update & Install necessary packages
-#sudo pacman -Syu
-#sudo pacman -S --noconfirm --needed base-devel boost calcurse conky clang cmake deluge \
-#emacs ffmpeg firefox freeglut gdb git geany glew gnuplot mesa ncdu opencl-headers \
-#opencl-mesa screenfetch thunderbird tmux valgrind vim virtualbox wget
+### Install packages ###
 
-# Get yaourt
-#sudo echo -e "\n[archlinuxfr]\nSiglevel = Never\nServer = http://repo.archlinux.fr/x86_64" \
-#>> /etc/pacman.conf
+sudo apt update && sudo apt upgrade && sudo apt install bison binutils-dev build-essential code \
+conky docker.io gawk git gnuplot golang-go maven net-tools openjdk-8-jdk openjdk-11-jdk peek \
+shellcheck sublime-text telegram-desktop tmux unetbootin valgrind vlc xfonts-terminus yakuake
 
-#sudo pacman -S yaourt
+### Configure Git ###
 
-#yaourt -Syu
-#yaourt -S --noconfirm peek radeontop telegram-desktop-bin
+git config --global user.name "5aboteur"
+git config --global user.email "5aboteur@protonmail.com"
+git config --global core.editor "nano"
 
-# Display installed packages
-#sudo pacman -Qe
+### Place dotfiles ###
+
+mkdir -p ${GH_DIR}
+git clone https://github.com/5aboteur/${DF}.git ${GH_DIR}
+cd ${GH_DIR}/${DF} || exit
+
+for df in *; do
+	# skip .git directory
+	if ! [ -d "${df}" ]; then
+		cp "${df}" "${HOME}"
+	fi
+done
+
+cd "${HOME}" || exit
+
+### Install VS Code extensions ###
+
+code --install-extension aaron-bond.better-comments
+code --install-extension DavidAnson.vscode-markdownlint
+code --install-extension dbaeumer.vscode-eslint
+code --install-extension formulahendry.code-runner
+code --install-extension mathiasfrohlich.Kotlin
+code --install-extension ms-azuretools.vscode-docker
+code --install-extension ms-kubernetes-tools.vscode-kubernetes-tools
+code --install-extension ms-python.python
+code --install-extension ms-vscode.cpptools
+code --install-extension ms-vscode.Go
+code --install-extension Pivotal.vscode-spring-boot
+code --install-extension redhat.java
+code --install-extension redhat.vscode-xml
+code --install-extension redhat.vscode-yaml
+code --install-extension sleistner.vscode-fileutils
+code --install-extension VisualStudioExptTeam.vscodeintellicode
+code --install-extension vscjava.vscode-java-debug
+code --install-extension vscjava.vscode-java-dependency
+code --install-extension vscjava.vscode-java-pack
+code --install-extension vscjava.vscode-java-test
+code --install-extension vscjava.vscode-maven
+code --install-extension vscjava.vscode-spring-initializr
+
+### Check results ###
+
+(zcat $(ls -tr /var/log/apt/history.log*.gz); cat /var/log/apt/history.log) 2>/dev/null | \
+grep -E '^(Start-Date:|Commandline:)' | grep -v aptdaemon | grep -E '^Commandline:' && \
+ls -la "${HOME}" && code --list-extensions
