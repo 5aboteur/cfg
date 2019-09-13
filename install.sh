@@ -32,6 +32,11 @@ done
 
 cd "${HOME}" || exit
 
+### Install Intellij IDEA via snap
+
+sudo snap install intellij-idea-community --classic
+sudo ln -s /snap/intellij-idea-community/current/bin/idea.sh /usr/bin/idea
+
 ### Install VS Code extensions ###
 
 code --install-extension aaron-bond.better-comments
