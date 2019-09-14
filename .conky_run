@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# prevents duplicate of a conky process at the session startup
+
+killall conky
+conky &
