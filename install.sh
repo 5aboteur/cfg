@@ -32,10 +32,12 @@ done
 
 cd "${HOME}" || exit
 
-### Install Intellij IDEA via snap
+### Install JetBrains IDEs via snap
 
 sudo snap install intellij-idea-community --classic
 sudo ln -s /snap/intellij-idea-community/current/bin/idea.sh /usr/bin/idea
+sudo snap install pycharm-community --classic
+sudo ln -s /snap/pycharm-community/current/bin/pycharm.sh /usr/bin/pycharm
 
 ### Install VS Code extensions ###
 
