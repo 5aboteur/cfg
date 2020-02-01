@@ -8,7 +8,7 @@ GH_DIR=Programming/github
 ### Install packages ###
 
 sudo apt update && sudo apt upgrade && sudo apt install bison binutils-dev build-essential code \
-conky docker.io gawk git gnuplot golang-go maven net-tools openjdk-8-jdk openjdk-11-jdk peek \
+conky docker.io gawk git gnuplot golang-go maven ncdu net-tools openjdk-8-jdk openjdk-11-jdk peek \
 shellcheck sublime-text telegram-desktop tmux unetbootin valgrind vlc xfonts-terminus yakuake
 
 ### Configure Git ###
